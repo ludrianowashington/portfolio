@@ -2,7 +2,10 @@ $bg-primary-color: #100e17;
 
 $bg-secondary-color: #2438e7;
 $bg-alternative-color: #2438e79c;
-
+$letter-color: #d5dfde;
+// asdfkjafwer
 body {
+  color: $letter-color;
   background-color: $bg-primary-color;
+  font: 1em sans-serif;
 }
