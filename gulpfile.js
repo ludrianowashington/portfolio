@@ -15,7 +15,7 @@ const files = {
   htmlPath: "**/*.html",
   filesProd: "./app/dist",
   devCss: "./app/assets/css/",
-  devJs: "./app/assets/js/",
+  devJs: "./app/js/",
 };
 
 function jsTask() {
