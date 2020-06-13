@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Lobster&family=Roboto&display=swap');
+
+$bg-primary-color: #100e17;
+$bg-secondary-color: #1F89DD;
+$bg-alternative-color: #2438e79c;
+$font-color: #d5dfde;
+
+$font-primary: Dosis, Roboto, sans-serif;
+$font-secondary: Roboto, sans-serif;
+$font-alternative: Lobster, Dosis, sans-serif;
+
+// ==> General <==
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: $font-color;
+  background-color: $bg-primary-color;
+  font-family: $font-secondary;
+}
+
+.container{
+  margin: 0em 2em;
+  // background-color: #8ea1e6; //Temporario
+}
+
+li {
+  list-style: none;
+}
+
+
+a {
+  text-decoration: none;
+  color: $font-color;
+}
+
+
+// ==> Inicial <=> Navigation <==
+
+.ld-header {
+  background-color: #1E1E25; 
+  position: relative;
+  width: 100%;
+  height: 12.5vh;
+
+  .container {
+    padding: 0em 1.5em;
+  }
+  
+}
+
+nav {
+  // background-color: #1F89DD; //Temporario
+  width: 100%;
+  height: 12.5vh;
+  display: flex;
+  
+  .navbar-brand {
+    // background-color: #d85c5c; //Temporario
+    width: 15%;
+    display: flex;
+    padding-left: 5rem;
+    align-self: center;
+
+    #brand{
+      font-family: $font-alternative;
+      font-size: 40px;
+      transition: 0.2s ease-in-out;
+
+      &:hover{
+        color: $bg-secondary-color;
+      }
+
+      b{
+        font-family: $font-primary;
+      }
+    }
+    
+
+
+  }
+  
+  .navbar-collapse{
+    width: 75%;
+    align-self: center;
+    
+    ul{
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;   
+      // background-color: #27406c; //Temporario
+      padding: 0px 0px 0px 80px;
+    }
+    
+    li{
+      // background-color: #24a06c; //Temporario
+      align-self: center;
+      padding: 15px 25px;
+    }
+    
+    a {
+      font-family: $font-primary;
+      font-size: 19px;
+      padding: 7px 1px;
+      transition: 0.3s ease-in-out;
+      
+      &:hover{
+        border-bottom: 1px #d5dfde solid;
+        color: $bg-secondary-color;
+      }
+    }
+
+      
+  }
+}
+
+
+
+
+
+// ==> End <=> Navigation <==

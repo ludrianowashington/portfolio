@@ -11,11 +11,11 @@ const browserSync = require("browser-sync").create();
 
 const files = {
   jsPath: "./app/js/**/*.js",
-  cssPath: "./app/scss/**/*.scss",
+  cssPath: "./app/scss/main.scss",
   htmlPath: "**/*.html",
   filesProd: "./app/dist",
-  devCss: "./app/css/",
-  devJs: "./app/js/",
+  devCss: "./app/assets/css/",
+  devJs: "./app/assets/js/",
 };
 
 function jsTask() {
@@ -30,9 +30,15 @@ function cssTask() {
   return src(files.cssPath)
     .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(postcss([autoprefixer()]))
     .pipe(sourcemaps.write("."))
     .pipe(dest(files.devCss))
+    .pipe(browserSync.stream());
+}
+
+function minCss() {
+  return src(files.devCss)
+    .pipe(postcss([cssnano()]))
     .pipe(rename({ suffix: ".min" }))
     .pipe(dest(files.filesProd))
     .pipe(browserSync.stream());

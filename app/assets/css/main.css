@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Lobster&family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  color: #d5dfde;
+  background-color: #100e17;
+  font-family: Roboto, sans-serif; }
+
+.container {
+  margin: 0em 2em; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: #d5dfde; }
+
+.ld-header {
+  background-color: #1E1E25;
+  position: relative;
+  width: 100%;
+  height: 12.5vh; }
+  .ld-header .container {
+    padding: 0em 1.5em; }
+
+nav {
+  width: 100%;
+  height: 12.5vh;
+  display: flex; }
+  nav .navbar-brand {
+    width: 15%;
+    display: flex;
+    padding-left: 5rem;
+    align-self: center; }
+    nav .navbar-brand #brand {
+      font-family: Lobster, Dosis, sans-serif;
+      font-size: 40px;
+      transition: 0.2s ease-in-out; }
+      nav .navbar-brand #brand:hover {
+        color: #1F89DD; }
+      nav .navbar-brand #brand b {
+        font-family: Dosis, Roboto, sans-serif; }
+  nav .navbar-collapse {
+    width: 75%;
+    align-self: center; }
+    nav .navbar-collapse ul {
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 0px 0px 0px 80px; }
+    nav .navbar-collapse li {
+      align-self: center;
+      padding: 15px 25px; }
+    nav .navbar-collapse a {
+      font-family: Dosis, Roboto, sans-serif;
+      font-size: 19px;
+      padding: 7px 1px;
+      transition: 0.3s ease-in-out; }
+      nav .navbar-collapse a:hover {
+        border-bottom: 1px #d5dfde solid;
+        color: #1F89DD; }
+
+/*# sourceMappingURL=main.css.map */
