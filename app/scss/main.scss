@@ -38,87 +38,188 @@ a {
 
 
 // ==> Inicial <=> Navigation <==
-
 .ld-header {
-  background-color: #1E1E25; 
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 12.5vh;
+  z-index: 5;
+  transition: 0.3s ease-in-out;
 
   .container {
     padding: 0em 1.5em;
   }
   
-}
-
-nav {
-  // background-color: #1F89DD; //Temporario
-  width: 100%;
-  height: 12.5vh;
-  display: flex;
-  
-  .navbar-brand {
-    // background-color: #d85c5c; //Temporario
-    width: 15%;
+  nav {
+    // background-color: #1F89DD; //Temporario
+    width: 100%;
+    height: 12.5vh;
     display: flex;
-    padding-left: 5rem;
-    align-self: center;
-
-    #brand{
-      font-family: $font-alternative;
-      font-size: 40px;
-      transition: 0.2s ease-in-out;
-
-      &:hover{
-        color: $bg-secondary-color;
-      }
-
-      b{
-        font-family: $font-primary;
-      }
-    }
     
-
-
-  }
-  
-  .navbar-collapse{
-    width: 75%;
-    align-self: center;
-    
-    ul{
-      height: 50px;
+    .navbar-brand {
+      // background-color: #d85c5c; //Temporario
+      width: 15%;
       display: flex;
-      flex-direction: row;
-      justify-content: center;   
-      // background-color: #27406c; //Temporario
-      padding: 0px 0px 0px 80px;
-    }
-    
-    li{
-      // background-color: #24a06c; //Temporario
+      padding-left: 5rem;
       align-self: center;
-      padding: 15px 25px;
-    }
-    
-    a {
-      font-family: $font-primary;
-      font-size: 19px;
-      padding: 7px 1px;
-      transition: 0.3s ease-in-out;
-      
-      &:hover{
-        border-bottom: 1px #d5dfde solid;
-        color: $bg-secondary-color;
+  
+      #brand{
+        font-family: $font-alternative;
+        font-size: 40px;
+        transition: 0.2s ease-in-out;
+  
+        &:hover{
+          color: $bg-secondary-color;
+        }
+  
+        b{
+          font-family: $font-primary;
+        }
       }
     }
-
+    
+    .navbar-collapse{
+      width: 75%;
+      align-self: center;
       
+      ul{
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;   
+        // background-color: #27406c; //Temporario
+        padding: 0px 0px 0px 80px;
+      }
+      
+      li{
+        // background-color: #24a06c; //Temporario
+        align-self: center;
+        padding: 15px 25px;
+      }
+      
+      a {
+        font-family: $font-primary;
+        font-size: 19px;
+        padding: 7px 1px;
+        transition: 0.3s ease-in-out;
+        
+        &:hover{
+          border-bottom: 1px #d5dfde solid;
+          color: $bg-secondary-color;
+        }
+      }      
+    }
+  }
+}
+// ==> End <=> Navigation <==
+
+
+
+// ==> Begin <=> Home <==
+.ld-home {
+  position: relative;
+  width: 100%;
+  height: 112.4vh;
+  background-image: url("../img/background.jpg");
+  background-attachment: fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;  
+  ;
+  
+  .header-bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: #000a;
+  }
+
+  .col-header  {
+    // background-color: sienna; // Temporario
+    position: relative;
+    top: 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    
+    .header-img{      
+      // background-color: springgreen; //Temporario
+      
+      .border-img {
+        position: relative;
+        
+        & img{
+          position: absolute;
+          //clip: rect(0px,600px,550px,0px);
+          left: 6rem;
+          height: 41rem;
+          filter: grayscale(0.1) contrast(0.895) brightness(0.9);
+        }
+      }
+    }
+    
+    .header-info{
+      // background-color: slateblue; //Temporario
+      position: relative;
+      padding: 80px 25px 25px;
+      font-family: $font-primary;
+      font-size: 18px;
+      
+      
+      
+      .ini-info {
+        margin-left: 0.8rem;
+        
+        span {
+          background-color: $bg-secondary-color;
+          // width: 18em;
+          border-radius: 27px 27px 27px 0px;
+          padding: 12px 25px;
+          text-align: center;
+          font-size: 20px;
+        }
+      }
+      
+      .nm-info{
+        // background-color: yellow;
+        padding: 12px;
+        margin-top: 25px;
+        font-family: $font-primary;
+        
+        h2{
+          font-size: 50px;
+        }
+        
+        h4 {
+          font-size: 28px;
+        }
+      }
+      
+      .link-info{
+        padding: 12px;
+        direction: initial;
+        display: flex;
+        flex-direction: column;
+        
+        .lt-info{
+          padding: 5px 10px;
+          flex-direction: row;
+
+          i{
+            width: 3%;
+            background-color: tan;
+            // padding-right: 13px;
+            margin-right: 23px;
+          }
+        }
+      }
+      .social-link{
+        // background-color: violet;
+        padding: 12px;
+
+      }
+    }
   }
 }
 
-
-
-
-
-// ==> End <=> Navigation <==
+// ==> End <=> Home <==
