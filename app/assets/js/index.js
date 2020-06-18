@@ -14,3 +14,11 @@ window.onscroll = () => {
     navbar.style.backgroundColor = "#00000000";
   }
 };
+
+function clicked() {
+  let navItem = document.getElementsByClassName("nav-item");
+  let section = [0];
+
+  console.log(navItem);
+}
+document.body;

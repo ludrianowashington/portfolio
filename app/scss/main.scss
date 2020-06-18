@@ -230,28 +230,35 @@ a {
           margin-left: 5px;
           width: 40px;
           height: 40px;
-          border: 1px #d5dfde solid;
+          
           border-radius: 25px;
           display: flex;
           justify-content: center;
-
-          a {
-            align-self: center;
           
-            .fa-facebook{
+          a, i{
+            width: 40px;
+            height: 40px;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px #d5dfde solid;
+            transition: 0.2s ease-in-out;
+            
+            &:hover > .fa-facebook{
               background-color: #3B5999;
             }
-            .fa-instagram{
+            
+            &:hover > .fa-instagram{
               background-color: #044B7F;
-              
             }
-            .fa-linkedin{
+            
+            &:hover > .fa-linkedin{
               background-color: #0077B5;
-              
             }
-            .fa-github{
-              background-color: #313030;
-              
+
+            &:hover > .fa-github{
+              background-color: #000;
             }
           }
 
