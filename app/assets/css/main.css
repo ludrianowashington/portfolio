@@ -115,17 +115,40 @@ a {
           font-size: 28px; }
       .ld-home .col-header .header-info .link-info {
         padding: 12px;
-        direction: initial;
         display: flex;
         flex-direction: column; }
         .ld-home .col-header .header-info .link-info .lt-info {
           padding: 5px 10px;
-          flex-direction: row; }
+          display: inline-flex;
+          transition: 0.2s ease-in-out; }
+          .ld-home .col-header .header-info .link-info .lt-info:hover {
+            color: #1F89DD;
+            font-style: italic; }
           .ld-home .col-header .header-info .link-info .lt-info i {
-            width: 3%;
-            background-color: tan;
-            margin-right: 23px; }
+            width: 10px;
+            display: flex;
+            justify-content: center;
+            margin-right: 20px; }
       .ld-home .col-header .header-info .social-link {
-        padding: 12px; }
+        margin: 3px;
+        display: flex; }
+        .ld-home .col-header .header-info .social-link .social-ln {
+          margin-left: 5px;
+          width: 40px;
+          height: 40px;
+          border: 1px #d5dfde solid;
+          border-radius: 25px;
+          display: flex;
+          justify-content: center; }
+          .ld-home .col-header .header-info .social-link .social-ln a {
+            align-self: center; }
+            .ld-home .col-header .header-info .social-link .social-ln a .fa-facebook {
+              background-color: #3B5999; }
+            .ld-home .col-header .header-info .social-link .social-ln a .fa-instagram {
+              background-color: #044B7F; }
+            .ld-home .col-header .header-info .social-link .social-ln a .fa-linkedin {
+              background-color: #0077B5; }
+            .ld-home .col-header .header-info .social-link .social-ln a .fa-github {
+              background-color: #313030; }
 
 /*# sourceMappingURL=main.css.map */
