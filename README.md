@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/tela.png"/><br>
+</p>
+
 # Ludriano - Desenvolvedor Web
 
 #### _Este será o meu Website para visualização de meu portfólio._
