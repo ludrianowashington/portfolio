@@ -15,11 +15,14 @@ export const metadata: Metadata = {
   title: "Ludriano Washington da Silva - Fullstack Developer Portfolio",
   description:
     "Experienced fullstack developer specializing in Java, Spring Boot, Node.js, React, and Next.js. Building scalable and high-performance digital solutions.",
-  keywords: "Fullstack Developer, Frontend Developer, Backend Developer, React, Java, Spring Boot, Node.js, Next.js",
+  keywords: ["Fullstack Developer, Web Developer, Frontend Developer, Backend Developer, React, Java, Spring Boot, Node.js, Next.js",
+    "Tailwind CSS, PostgreSQL, MySQL, Redis, Docker, AWS, Programador Fullstack, Desenvolvedor Fullstack, Desenvolvedor Frontend",
+    "Desenvolvedor Backend, React Native, Android, Mobile Developer, Desenvolvedor Mobile, Ludriano Washington, Ludriano Silva",
+    "Programador Pernambuco, Programador Recife, Programador Olinda, Programador web, Pessoa Desenvolvedora, Pessoa Programadora"],
   openGraph: {
     title: "Ludriano Washington da Silva - Fullstack Developer Portfolio",
     description:
-      "Experienced fullstack developer specializing in Java, Spring Boot, Node.js, React, and Next.js. Building scalable and high-performance digital solutions.",
+      "Experienced fullstack developer specializing in React,  Next.js, Node.js, Java, Spring Boot. Building scalable and high-performance digital solutions.",
     url: "https://ludrianowashington.vercel.app",
     siteName: "Ludriano Washington da Silva Portfolio",
     images: [
