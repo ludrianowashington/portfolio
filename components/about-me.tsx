@@ -27,7 +27,7 @@ export default function AboutMe() {
     en: {
       title: "About Me",
       subtitle: "Developer, Entrepreneur, Problem Solver",
-      bio: "I'm a passionate fullstack developer and digital entrepreneur with over 8 years of experience building scalable web applications and SaaS products. My expertise spans the entire development lifecycle, from concept and design to deployment and maintenance.",
+      bio: "I'm a passionate fullstack developer and digital entrepreneur with over 4 years of experience building scalable web applications and SaaS products. My expertise spans the entire development lifecycle, from concept and design to deployment and maintenance.",
       entrepreneurship: "As an entrepreneur, I've founded several digital products:",
       projects: [
         {
@@ -54,7 +54,7 @@ export default function AboutMe() {
     pt: {
       title: "Sobre Mim",
       subtitle: "Desenvolvedor, Empreendedor, Solucionador de Problemas",
-      bio: "Sou um desenvolvedor fullstack e empreendedor digital apaixonado com mais de 8 anos de experiência construindo aplicações web escaláveis e produtos SaaS. Minha expertise abrange todo o ciclo de desenvolvimento, desde o conceito e design até a implantação e manutenção.",
+      bio: "Sou um desenvolvedor fullstack e empreendedor digital apaixonado com mais de 4 anos de experiência construindo aplicações web escaláveis e produtos SaaS. Minha expertise abrange todo o ciclo de desenvolvimento, desde o conceito e design até a implantação e manutenção.",
       entrepreneurship: "Como empreendedor, fundei diversos produtos digitais:",
       projects: [
         {
