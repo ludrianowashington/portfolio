@@ -24,6 +24,7 @@ export default function Header() {
   const navItems = [
     { name: language === "en" ? "Home" : "Início", href: "#home" },
     { name: language === "en" ? "About" : "Sobre", href: "#about" },
+    { name: language === "en" ? "Experience" : "Experiência", href: "#experience" },
     { name: language === "en" ? "Projects" : "Projetos", href: "#projects" },
     { name: language === "en" ? "Contact" : "Contato", href: "#contact" },
   ]
