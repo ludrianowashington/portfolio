@@ -1,38 +1,44 @@
 import { Github, Linkedin, Mail } from "lucide-react"
+import { FaHeart } from "react-icons/fa"
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="border-t px-2">
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          <p className="text-center text-sm leading-loose md:text-left">
-            Built by Ludriano Washington da Silva. Hosted on{" "}
+    <footer className="bg-background border-t border-border/40 py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center space-x-4">
             <a
-              href="https://vercel.com"
+              href="https://github.com/ludrianowashington"
               target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4"
+              rel="noopener noreferrer"
+              className="text-foreground/70 hover:text-primary transition-colors"
+              aria-label="GitHub"
             >
-              Vercel
+              <Github className="h-5 w-5" />
             </a>
-            .
+            <a
+              href="https://www.linkedin.com/in/ludrianowashington/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/70 hover:text-primary transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="mailto:ludrianowashington@gmail.com"
+              className="text-foreground/70 hover:text-primary transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="h-5 w-5" />
+            </a>
+          </div>
+
+          <p className="text-foreground/70 text-sm flex items-center gap-1">
+            Feito com <FaHeart className="text-red-500" /> por Ludriano Washington © {currentYear}
           </p>
-        </div>
-        <div className="flex items-center space-x-4">
-          <a href="https://github.com/ludrianowashington" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <Github className="h-5 w-5" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ludrianowashington/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="h-5 w-5" />
-          </a>
-          <a href="mailto:ludinho.washi@gmail.com" aria-label="Email">
-            <Mail className="h-5 w-5" />
-          </a>
         </div>
       </div>
     </footer>

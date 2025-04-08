@@ -3,34 +3,48 @@ import Header from "@/components/header"
 import { LanguageProvider } from "@/components/language-provider"
 import { ThemeProvider } from "@/components/theme-provider"
 import WhatsAppButton from "@/components/whatsapp-button"
-import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Montserrat, Poppins } from "next/font/google"
 import type React from "react"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
+
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  display: "swap",
+})
+
+const montserrat = Montserrat({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "Ludriano Washington da Silva - Fullstack Developer Portfolio",
+  title: "Ludriano Washington | Fullstack Developer & Digital Entrepreneur",
   description:
-    "Experienced fullstack developer specializing in Java, Spring Boot, Node.js, React, and Next.js. Building scalable and high-performance digital solutions.",
-  keywords: ["Fullstack Developer, Web Developer, Frontend Developer, Backend Developer, React, Java, Spring Boot, Node.js, Next.js",
-    "Tailwind CSS, PostgreSQL, MySQL, Redis, Docker, AWS, Programador Fullstack, Desenvolvedor Fullstack, Desenvolvedor Frontend",
-    "Desenvolvedor Backend, React Native, Android, Mobile Developer, Desenvolvedor Mobile, Ludriano Washington, Ludriano Silva",
-    "Programador Pernambuco, Programador Recife, Programador Olinda, Programador web, Pessoa Desenvolvedora, Pessoa Programadora"],
+    "Experienced fullstack developer and entrepreneur specializing in scalable solutions, SaaS development, and purposeful automation.",
+  keywords: "Fullstack Developer, Digital Entrepreneur, React, Next.js, Java, Spring Boot, Node.js, SaaS Development",
   openGraph: {
-    title: "Ludriano Washington da Silva - Fullstack Developer Portfolio",
+    title: "Ludriano Washington | Fullstack Developer & Digital Entrepreneur",
     description:
-      "Experienced fullstack developer specializing in React,  Next.js, Node.js, Java, Spring Boot. Building scalable and high-performance digital solutions.",
+      "Experienced fullstack developer and entrepreneur specializing in scalable solutions, SaaS development, and purposeful automation.",
     url: "https://ludrianowashington.vercel.app",
-    siteName: "Ludriano Washington da Silva Portfolio",
+    siteName: "Ludriano Washington Portfolio",
     images: [
       {
-        url: "https://ludrianowashington.vercel.app/ludriano-profile.jpg",
+        url: "https://github.com/ludrianowashington.png",
         width: 1200,
         height: 630,
-        alt: "Ludriano Washington da Silva - Fullstack Developer",
+        alt: "Ludriano Washington - Fullstack Developer & Entrepreneur",
       },
     ],
     locale: "en_US",
@@ -38,10 +52,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ludriano Washington da Silva - Fullstack Developer Portfolio",
+    title: "Ludriano Washington | Fullstack Developer & Digital Entrepreneur",
     description:
-      "Experienced fullstack developer specializing in Java, Spring Boot, Node.js, React, and Next.js. Building scalable and high-performance digital solutions.",
-    images: ["https://ludrianowashington.vercel.app/ludriano-profile.jpg"],
+      "Experienced fullstack developer and entrepreneur specializing in scalable solutions, SaaS development, and purposeful automation.",
+    images: ["https://github.com/ludrianowashington.png"],
   },
 }
 
@@ -52,7 +66,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${poppins.variable} ${montserrat.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <LanguageProvider>
             <div className="flex flex-col min-h-screen">
@@ -63,7 +77,6 @@ export default function RootLayout({
             </div>
           </LanguageProvider>
         </ThemeProvider>
-        <Analytics/>
       </body>
     </html>
   )

@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { motion } from "framer-motion"
+import { Send } from "lucide-react"
 import { useState } from "react"
 import { useLanguage } from "./language-provider"
 
@@ -11,7 +12,6 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: "",
   })
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
@@ -20,20 +20,26 @@ export default function ContactForm() {
     en: {
       name: "Name",
       email: "Email",
-      subject: "Subject (optional)",
       message: "Message",
       submit: "Send Message",
+      sending: "Sending...",
       success: "Message sent successfully!",
       error: "An error occurred. Please try again.",
+      namePlaceholder: "Your name",
+      emailPlaceholder: "your.email@example.com",
+      messagePlaceholder: "How can I help you?",
     },
     pt: {
       name: "Nome",
       email: "E-mail",
-      subject: "Assunto (opcional)",
       message: "Mensagem",
       submit: "Enviar Mensagem",
+      sending: "Enviando...",
       success: "Mensagem enviada com sucesso!",
       error: "Ocorreu um erro. Por favor, tente novamente.",
+      namePlaceholder: "Seu nome",
+      emailPlaceholder: "seu.email@exemplo.com",
+      messagePlaceholder: "Como posso ajudar você?",
     },
   }
 
@@ -50,7 +56,7 @@ export default function ContactForm() {
     setTimeout(() => {
       // Simulating a successful submission
       setFormStatus("success")
-      setFormData({ name: "", email: "", subject: "", message: "" })
+      setFormData({ name: "", email: "", message: "" })
 
       // Reset form status after 3 seconds
       setTimeout(() => setFormStatus("idle"), 3000)
@@ -58,15 +64,9 @@ export default function ContactForm() {
   }
 
   return (
-    <motion.form
-      onSubmit={handleSubmit}
-      className="space-y-4 mt-8"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="name" className="block text-sm font-medium text-foreground/80 mb-1">
           {content[language].name}
         </label>
         <input
@@ -76,11 +76,13 @@ export default function ContactForm() {
           required
           value={formData.name}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+          placeholder={content[language].namePlaceholder}
+          className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
         />
       </div>
+
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="email" className="block text-sm font-medium text-foreground/80 mb-1">
           {content[language].email}
         </label>
         <input
@@ -90,67 +92,68 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+          placeholder={content[language].emailPlaceholder}
+          className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
         />
       </div>
+
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-          {content[language].subject}
-        </label>
-        <input
-          type="text"
-          id="subject"
-          name="subject"
-          value={formData.subject}
-          onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-        />
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="message" className="block text-sm font-medium text-foreground/80 mb-1">
           {content[language].message}
         </label>
         <textarea
           id="message"
           name="message"
-          rows={4}
+          rows={5}
           required
           value={formData.message}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+          placeholder={content[language].messagePlaceholder}
+          className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"
         ></textarea>
       </div>
+
       <div>
         <motion.button
           type="submit"
           disabled={formStatus === "submitting"}
-          className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="button-primary w-full flex items-center justify-center gap-2"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
-          {formStatus === "submitting" ? "Sending..." : content[language].submit}
+          {formStatus === "submitting" ? (
+            <>
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              {content[language].sending}
+            </>
+          ) : (
+            <>
+              <Send className="w-4 h-4" />
+              {content[language].submit}
+            </>
+          )}
         </motion.button>
+
+        {formStatus === "success" && (
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-4 text-green-500 text-center"
+          >
+            {content[language].success}
+          </motion.p>
+        )}
+
+        {formStatus === "error" && (
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-4 text-red-500 text-center"
+          >
+            {content[language].error}
+          </motion.p>
+        )}
       </div>
-      {formStatus === "success" && (
-        <motion.p
-          className="text-green-600 dark:text-green-400"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          {content[language].success}
-        </motion.p>
-      )}
-      {formStatus === "error" && (
-        <motion.p
-          className="text-red-600 dark:text-red-400"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          {content[language].error}
-        </motion.p>
-      )}
-    </motion.form>
+    </form>
   )
 }

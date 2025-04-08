@@ -1,176 +1,153 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 import Image from "next/image"
-import { useEffect, useRef } from "react"
+import { useEffect, useState } from "react"
 import { useLanguage } from "./language-provider"
 
 export default function HeroSection() {
   const { language } = useLanguage()
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [phraseIndex, setPhraseIndex] = useState(0)
 
   const content = {
     en: {
-      jobTitle: "Fullstack Developer",
-      headline: "Building Scalable and High-Performance Digital Solutions",
+      greeting: "Hello, I'm",
+      name: "Ludriano Washington",
+      title: "Fullstack Developer & Digital Entrepreneur",
+      phrases: ["Scalable Solutions", "Intelligent SaaS", "Purposeful Automation"],
       description:
-        "I'm a fullstack developer specializing in React, Next.js, Node.js, Java, Spring Boot, and Angular. Focused on architecture, performance, and best coding practices.",
-      cta: "Talk to me",
+        "Building innovative digital products that solve real problems with modern technology and strategic vision.",
+      projectsButton: "View Projects",
+      contactButton: "Get in Touch",
     },
     pt: {
-      jobTitle: "Desenvolvedor Fullstack",
-      headline: "Criando Soluções Digitais Escaláveis e de Alta Performance",
+      greeting: "Olá, eu sou",
+      name: "Ludriano Washington",
+      title: "Desenvolvedor Fullstack & Empreendedor Digital",
+      phrases: ["Soluções Escaláveis", "SaaS Inteligente", "Automação com Propósito"],
       description:
-        "Sou um desenvolvedor fullstack especializado em React, Next.js, Node.js, Java, Spring Boot, and Angular. Focado em arquitetura, performance e boas práticas de código.",
-      cta: "Fale comigo",
+        "Construindo produtos digitais inovadores que resolvem problemas reais com tecnologia moderna e visão estratégica.",
+      projectsButton: "Ver Projetos",
+      contactButton: "Entrar em Contato",
     },
   }
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const interval = setInterval(() => {
+      setPhraseIndex((prevIndex) => (prevIndex === content[language].phrases.length - 1 ? 0 : prevIndex + 1))
+    }, 3000)
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-
-    const particles: { x: number; y: number; radius: number; vx: number; vy: number }[] = []
-    const particleCount = 100
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 2 + 1,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-      })
-    }
-
-    function animate() {
-      requestAnimationFrame(animate)
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      particles.forEach((particle) => {
-        particle.x += particle.vx
-        particle.y += particle.vy
-
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
-
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
-        ctx.fillStyle = "rgba(100, 100, 255, 0.5)"
-        ctx.fill()
-      })
-
-      particles.forEach((particleA, i) => {
-        particles.slice(i + 1).forEach((particleB) => {
-          const dx = particleA.x - particleB.x
-          const dy = particleA.y - particleB.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 100) {
-            ctx.beginPath()
-            ctx.moveTo(particleA.x, particleA.y)
-            ctx.lineTo(particleB.x, particleB.y)
-            ctx.strokeStyle = `rgba(100, 100, 255, ${1 - distance / 100})`
-            ctx.stroke()
-          }
-        })
-      })
-    }
-
-    animate()
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    window.addEventListener("resize", handleResize)
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
+    return () => clearInterval(interval)
+  }, [language, content])
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-32">
-      <canvas ref={canvasRef} className="absolute inset-0 z-0" />
-      <div className="container relative z-10">
-        <motion.div
-          className="mx-auto max-w-5xl text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex flex-col items-center justify-center mb-8 sm:flex-row sm:mb-12">
-            <motion.div
-              className="w-64 h-64 mb-6 sm:mb-0 sm:mr-8"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+    <section id="home" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 to-background z-0"></div>
+
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          <motion.div
+            className="flex-1 max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.span
+              className="inline-block text-lg md:text-xl text-primary mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              {content[language].greeting}
+            </motion.span>
+
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Image
-                src="https://avatars.githubusercontent.com/u/53495653?v=4"
-                alt="Ludriano Washington da Silva"
-                width={256}
-                height={256}
-                className="rounded-full object-cover shadow-lg"
-              />
-            </motion.div>
-            <div className="text-left">
-              <motion.h2
-                className="text-2xl font-semibold text-blue-400 dark:text-blue-300 mb-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                {content[language].jobTitle}
-              </motion.h2>
-              <motion.h1
-                className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                Ludriano Washington
-              </motion.h1>
-            </div>
-          </div>
-          <motion.h3
-            className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            {content[language].headline}
-          </motion.h3>
-          <motion.p
-            className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            {content[language].description}
-          </motion.p>
-          <motion.div
-            className="mt-10 flex items-center justify-center gap-x-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-          >
-            <a
-              href="#contact"
-              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors duration-200"
+              {content[language].name}
+            </motion.h1>
+
+            <motion.h2
+              className="text-xl md:text-2xl font-medium text-foreground/80 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
-              {content[language].cta}
-            </a>
+              {content[language].title}
+            </motion.h2>
+
+            <div className="h-12 mb-6">
+              <motion.div
+                key={phraseIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="gradient-text text-2xl md:text-3xl font-bold"
+              >
+                {content[language].phrases[phraseIndex]}
+              </motion.div>
+            </div>
+
+            <motion.p
+              className="text-foreground/80 text-lg mb-8 max-w-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              {content[language].description}
+            </motion.p>
+
+            <motion.div
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <a href="#projects" className="button-primary flex items-center gap-2">
+                {content[language].projectsButton}
+                <ArrowRight size={16} />
+              </a>
+              <a href="#contact" className="button-secondary">
+                {content[language].contactButton}
+              </a>
+            </motion.div>
           </motion.div>
-        </motion.div>
+
+          <motion.div
+            className="flex-shrink-0"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-xl shadow-purple-500/20">
+              <Image
+                src="https://github.com/ludrianowashington.png"
+                alt="Ludriano Washington"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            <motion.div
+              className="absolute -z-10 w-64 h-64 md:w-80 md:h-80 rounded-full bg-primary/20 blur-3xl"
+              animate={{
+                scale: [1, 1.05, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Number.POSITIVE_INFINITY,
+                repeatType: "reverse",
+              }}
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   )
