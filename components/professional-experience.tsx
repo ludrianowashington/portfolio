@@ -18,10 +18,27 @@ export default function ProfessionalExperience() {
       title: "Professional Experience",
       experiences: [
         {
+          company: "Avanade do Brasil",
+          logo: "/placeholder.svg?height=80&width=80",
+          role: "Fullstack Developer",
+          period: "2026 - Present",
+          location: "Recife, Brazil",
+          type: "Full-time",
+          website: "https://avanade.com",
+          description:
+            "Contribuiting in the development of scalable and microservices. Implementing new features and optimizing existing codebase for improved performance.",
+          responsibilities: [
+            "Built and optimized backend microservices with Java/Spring Boot",
+            "Implemented CI/CD pipelines for automated testing and deployment",
+            "Collaborated with cross-functional teams to deliver high-quality software solutions",
+          ],
+          technologies: ["Java", "Spring Boot", "Angular"],
+        },
+        {
           company: "Grupo LAC",
           logo: "/placeholder.svg?height=80&width=80",
           role: "Fullstack Developer",
-          period: "2020 - Present",
+          period: "2020 - 2024",
           location: "Recife, Brazil",
           type: "Full-time",
           website: "https://grupolac.com",
@@ -39,7 +56,7 @@ export default function ProfessionalExperience() {
           company: "Factory of Idea",
           logo: "/placeholder.svg?height=80&width=80",
           role: "Freelance Fullstack Developer",
-          period: "2018 - 2020",
+          period: "2018 - 2024",
           location: "Remote",
           type: "Freelance",
           website: "https://factoryofidea.com",
@@ -57,10 +74,10 @@ export default function ProfessionalExperience() {
           company: "Intech CRM",
           logo: "/placeholder.svg?height=80&width=80",
           role: "Backend Developer",
-          period: "2016 - 2018",
+          period: "2024 - 2025",
           location: "Recife, Brazil",
           type: "Full-time",
-          website: "https://intechcrm.com",
+          website: "https://intechcrm.com.br",
           description:
             "Maintained and optimized a CRM platform for scalability and performance. Implemented new features and resolved complex technical issues.",
           responsibilities: [
@@ -77,10 +94,27 @@ export default function ProfessionalExperience() {
       title: "Experiência Profissional",
       experiences: [
         {
+          company: "Avanade do Brasil LTDA",
+          logo: "/placeholder.svg?height=80&width=80",
+          role: "Desenvolvedor Fullstack",
+          period: "2026 - presente",
+          location: "Recife, Brasil",
+          type: "Tempo integral",
+          website: "https://avanade.com",
+          description:
+            "Atuando no desenvolvimento de aplicações e microsserviços. Implementando novas funcionalidades e otimizando o código existente para melhorar o desempenho.",
+          responsibilities: [
+            "Construí e otimizei microsserviços backend com Java/Spring Boot",
+            "Implementei pipelines de CI/CD para testes e implantação automatizados",
+            "Colaborei com equipes multifuncionais para entregar soluções de software de alta qualidade",
+          ],
+          technologies: ["Java", "Spring Boot", "Angular"],
+        },
+        {
           company: "Grupo LAC",
           logo: "/placeholder.svg?height=80&width=80",
           role: "Desenvolvedor Fullstack",
-          period: "2020 - Presente",
+          period: "2020 - 2024",
           location: "Recife, Brasil",
           type: "Tempo integral",
           website: "https://grupolac.com",
@@ -98,7 +132,7 @@ export default function ProfessionalExperience() {
           company: "Factory of Idea",
           logo: "/placeholder.svg?height=80&width=80",
           role: "Desenvolvedor Fullstack Freelance",
-          period: "2018 - 2020",
+          period: "2021 - 2024",
           location: "Remoto",
           type: "Freelance",
           website: "https://factoryofidea.com",
@@ -116,10 +150,10 @@ export default function ProfessionalExperience() {
           company: "Intech CRM",
           logo: "/placeholder.svg?height=80&width=80",
           role: "Desenvolvedor Backend",
-          period: "2016 - 2018",
+          period: "2024 - 2025",
           location: "Recife, Brasil",
           type: "Tempo integral",
-          website: "https://intechcrm.com",
+          website: "https://intechcrm.com.br",
           description:
             "Mantive e otimizei uma plataforma CRM para escalabilidade e desempenho. Implementei novas funcionalidades e resolvi problemas técnicos complexos.",
           responsibilities: [

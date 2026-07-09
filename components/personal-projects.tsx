@@ -16,14 +16,14 @@ export default function PersonalProjects() {
           description: "A microSaaS for print shops, automating production workflows.",
           technologies: "React, Node.js, MongoDB",
           status: 'In Development',
-          url: 'https://pryntio.vercel.app/'
+          url: 'https://pryntio.com.br'
         },
         {
           name: "Conttak",
           description: "A personal finance management application.",
           technologies: "React Native, Firebase",
           status: 'Paused',
-          url: 'https://conttak.vercel.app'
+          url: 'https://conttak.com.br'
         },
         {
           name: "Thryllo",
@@ -42,14 +42,14 @@ export default function PersonalProjects() {
           description: "Um microSaaS para gráficas, automatizando fluxos de produção.",
           technologies: "React, Node.js, MongoDB",
           status: 'Em desenvolvimento',
-          url: 'https://pryntio.vercel.app/'
+          url: 'https://pryntio.com.br'
         },
         {
           name: "Conttak",
           description: "Um aplicativo de gerenciamento de finanças pessoais.",
           technologies: "React Native, Firebase",
           status: 'Pausado',
-          url: 'https://conttak.vercel.app'
+          url: 'https://conttak.com.br'
         },
         {
           name: "Thryllo",
